@@ -73,5 +73,11 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         if (edad != "")
 
             edad_campo?.text = edad
+        var cadena  = ""
+        var entero  = 0
+        var decimales = 1.0
+        var cierto_falso  = true
+        var char  = 'a'
+        var flotantes  = 5.2f
     }
 }
