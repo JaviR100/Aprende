@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#663939</item> <!--Este es el color del encabezado de la aplicacion-->
+        <item name="colorPrimaryDark">#F40A2D</item> <!--Este es para la parte superior donde se ven la notificaciones-->
+        <item name="colorAccent">#F40A2D</item>  <!-- Este es dentro de la aplicion como se veran los componente-->
+        <item name="colorButtonNormal">@color/botoncolor</item>
+    </style>
+
+</resources>
