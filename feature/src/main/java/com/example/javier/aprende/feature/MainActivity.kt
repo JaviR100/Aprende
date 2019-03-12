@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         edad_campo = findViewById(R.id.campo_edad)
         boton = findViewById(R.id.boton_ejecutar)
         boton!!.setOnClickListener(this)
+
+        //Para mejorar el modo depuracion
+        operacion()
     }
         //Funciones de Interfaces
     override fun afterTextChanged(s: Editable?)
@@ -64,7 +67,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     private fun operacion()
     {
-        nombre = Edit_Nombre?.text.toString()
+        /*nombre = Edit_Nombre?.text.toString()
         edad = Edit_Edad?.text.toString()
         if (nombre != "")
 
@@ -72,12 +75,21 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
         if (edad != "")
 
-            edad_campo?.text = edad
+            edad_campo?.text = edad*/
         var cadena  = ""
         var entero  = 0
-        var decimales = 1.0
-        var cierto_falso  = true
-        var char  = 'a'
-        var flotantes  = 5.2f
+        //var decimales = 1.0
+        //var cierto_falso  = true
+        //var char  = 'a'
+        //var flotantes  = 5.2f
+
+        if(true)
+            {
+                 entero = 5*5
+            }
+        else
+            {
+                cadena = "No tiene permiso"
+            }
     }
 }
