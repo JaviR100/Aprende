@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.annotation.IntegerRes
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
@@ -41,7 +42,10 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         boton!!.setOnClickListener(this)
 
         //Para mejorar el modo depuracion
-        operacion()
+        //operacion()
+
+        //Colocar el teclado en mayuscula al iniciar
+        Edit_Nombre!!.inputType = InputType.TYPE_CLASS_TEXT  or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
     }
         //Funciones de Interfaces
     override fun afterTextChanged(s: Editable?)
@@ -56,7 +60,18 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
         {
-            //Toast.makeText(this,s.toString(),Toast.LENGTH_SHORT).show()
+            nombre = Edit_Nombre?.text.toString()
+
+            if (nombre?.equals("") ?: ("" == null))
+                {
+                    Edit_Nombre!!.inputType = InputType.TYPE_CLASS_TEXT  or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS //Convierte los caracteres del teclado en mayuscula
+                }
+            else
+                {
+                   Edit_Nombre!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL // y esta en miniscula
+                }
+
+
 
         }
     //Funcion para el boton
@@ -67,29 +82,24 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     private fun operacion()
     {
-        /*nombre = Edit_Nombre?.text.toString()
+        nombre = Edit_Nombre?.text.toString()
         edad = Edit_Edad?.text.toString()
-        if (nombre != "")
-
-            nombre_campo?.text = nombre
-
-        if (edad != "")
-
-            edad_campo?.text = edad*/
-        var cadena  = ""
-        var entero  = 0
-        //var decimales = 1.0
-        //var cierto_falso  = true
-        //var char  = 'a'
-        //var flotantes  = 5.2f
-
-        if(true)
+        if (nombre?.equals("") ?: ("" == null) )
             {
-                 entero = 5*5
+                Edit_Nombre!!.requestFocus()
             }
         else
             {
-                cadena = "No tiene permiso"
+                nombre_campo?.text = nombre
+
+                if(edad?.equals("") ?: ("" == null))
+                    {
+                        Edit_Edad!!.requestFocus()
+                    }
+                else
+                    {
+                        edad_campo?.text = edad
+                    }
             }
     }
 }
