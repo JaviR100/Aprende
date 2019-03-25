@@ -3,4 +3,6 @@
     <string name="nombre">お名前</string>
     <string name="edad">年齢</string>
     <string name="boton">実行する</string>
+    <string name="masculino">男性</string>
+    <string name="femenino">女性</string>
 </resources>
