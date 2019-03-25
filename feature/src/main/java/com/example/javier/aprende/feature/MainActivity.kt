@@ -7,12 +7,9 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 
-class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
+class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
 
 
@@ -24,6 +21,9 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     private var nombre_campo : TextView? = null
     private var edad_campo : TextView? = null
     private var boton : Button? = null
+    private var Masculino : RadioButton? = null
+    private var Femenino : RadioButton? = null
+    private var mensaje = ""
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         edad_campo = findViewById(R.id.campo_edad)
         boton = findViewById(R.id.boton_ejecutar)
         boton!!.setOnClickListener(this)
+        Masculino = findViewById(R.id.Masculino)
+        Femenino = findViewById(R.id.Femenino)
+        Masculino!!.setOnClickListener(this)
+        Femenino!!.setOnClickListener(this)
 
         //Para mejorar el modo depuracion
         //operacion()
@@ -74,14 +78,29 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
 
         }
+
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean)
+    {
+
+    }
     //Funcion para el boton
     override fun onClick(v: View?)
     {
-        operacion()
+        when(v!!.id)
+        {
+            R.id.boton_ejecutar -> operacion()
+            R.id.Masculino -> Toast.makeText(this, "男性", Toast.LENGTH_SHORT).show()
+            R.id.Femenino -> Toast.makeText(this, "女性", Toast.LENGTH_SHORT).show()
+
+        }
+
     }
+
+
 
     private fun operacion()
     {
+
         nombre = Edit_Nombre?.text.toString()
         edad = Edit_Edad?.text.toString()
         if (nombre?.equals("") ?: ("" == null) )
